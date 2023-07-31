@@ -1,4 +1,4 @@
-//package SimpleClock;
+package SimpleClock;//package SimpleClock.SimpleClock;
 
 import javax.swing.*;
 import java.awt.*;
