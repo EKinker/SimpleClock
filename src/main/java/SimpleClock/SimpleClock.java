@@ -2,6 +2,8 @@ package SimpleClock;//package SimpleClock.SimpleClock;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -12,6 +14,19 @@ public class SimpleClock extends JFrame {
         SimpleDateFormat timeFormat;
         SimpleDateFormat dayFormat;
         SimpleDateFormat dateFormat;
+        JToggleButton toggle1224 = new JToggleButton("12 / 24 ");
+        ItemListener itemListener = new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent event) {
+                int state = event.getStateChange();
+                if (state == ItemEvent.SELECTED) {
+                    System.out.println("24");
+                }
+                else {
+                    System.out.println("12");
+                }
+            }
+        };
     
         JLabel timeLabel;
         JLabel dayLabel;
@@ -23,11 +38,13 @@ public class SimpleClock extends JFrame {
         SimpleClock() {
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.setTitle("Digital Clock");
-            this.setLayout(new FlowLayout());
-            this.setSize(350, 220);
+            this.setLayout(new FlowLayout(0,50,50));
+            this.setSize(570, 320);
             this.setResizable(false);
-    
-            timeFormat = new SimpleDateFormat("hh:mm:ss a");
+
+
+
+            timeFormat = new SimpleDateFormat("  hh:mm:ss a  ");
             dayFormat=new SimpleDateFormat("EEEE");
             dateFormat=new SimpleDateFormat("dd MMMMM, yyyy");
             timeLabel = new JLabel();
